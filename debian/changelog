@@ -1,14 +1,8 @@
 logni-belog (0.1.24+develop) unstable; urgency=low
 
-  * Initial commit [#221791af1c7518855161446f056ea3c1de02ccce](https://github.com/erikni/logni-belog/commit/221791af1c7518855161446f056ea3c1de02ccce)
+  * Added: Initial commit [#221791af1c7518855161446f056ea3c1de02ccce](https://github.com/erikni/logni-belog/commit/221791af1c7518855161446f056ea3c1de02ccce)
 
  -- Erik Brozek <erik@brozek.name>  Mon, 10 Dec 2018 18:07:19 +0100
-
-logni-belog (0.1.23+develop) unstable; urgency=low
-
-  * Initial commit [#221791af1c7518855161446f056ea3c1de02ccce](https://github.com/erikni/logni-belog/commit/221791af1c7518855161446f056ea3c1de02ccce)
-
- -- Erik Brozek <erik@brozek.name>  Mon, 10 Dec 2018 18:02:36 +0100
 
 logni-belog (0.1.22+develop) unstable; urgency=low
 
@@ -18,6 +12,6 @@ logni-belog (0.1.22+develop) unstable; urgency=low
 
 logni-belog (0.1.1) unstable; urgency=low
 
-  * debian package
+  * Added: debian package
 
  -- Erik Brozek <erik@brozek.name>  Fri, 12 May 2017 16:36:41 +0200
