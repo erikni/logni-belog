@@ -6,13 +6,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 This is an automatically generated [changelog](debian/changelog), please do not edit
 
-## [0.1.24+develop] - 2018-12-10
-### Unknown
-- Initial commit [#221791af1c7518855161446f056ea3c1de02ccce](https://github.com/erikni/logni-belog/commit/221791af1c7518855161446f056ea3c1de02ccce)
+## [0.1.25+develop] - 2018-12-10
+### Added
+- changelog [#4a63145c5d6f95f6dfe33b356cb0c2bb7ca13ec2](https://github.com/erikni/logni-belog/commit/4a63145c5d6f95f6dfe33b356cb0c2bb7ca13ec2)
+
+### Fixed
+- minor bugs [#33601d03f7b9db3f17b9f5d8df71578b26ee6c17](https://github.com/erikni/logni-belog/commit/33601d03f7b9db3f17b9f5d8df71578b26ee6c17)
+
+### Removed
+- obsolete files [#90259b3e2dbed57391f4c67c3bdfeab5bbe9e8ab](https://github.com/erikni/logni-belog/commit/90259b3e2dbed57391f4c67c3bdfeab5bbe9e8ab)
 
 
-## [0.1.23+develop]
-### Unknown
+## [0.1.24+develop]
+### Added
 - Initial commit [#221791af1c7518855161446f056ea3c1de02ccce](https://github.com/erikni/logni-belog/commit/221791af1c7518855161446f056ea3c1de02ccce)
 
 
@@ -22,7 +28,7 @@ This is an automatically generated [changelog](debian/changelog), please do not 
 
 
 ## [0.1.1] - 2017-05-12
-### Unknown
+### Added
 - debian package
 
 
