@@ -91,7 +91,7 @@ echo " .done"
 # log
 echo -n "log severity ... "
 for logniSeverity in 'Informational' 'Error' 'Critical' 'Warning' 'Debug'; do 
-	logniSeverity0=`echo ${logniSeverity:0:1}`;
+	logniSeverity0=`echo $logniSeverity | cut -c1-1`;
 	echo -n " ${logniSeverity} ... ";
 	for logniLevel in `seq 1 4`; do 
 		echo "{\"status\":200, \"statusCode\":\"OK\", \"logniSeverity\":\"${logniSeverity}\", \"logniLevel\":\"${logniLevel}\"}" > /opt/${GROUP}/${NAME}/www/log/${logniSeverity0}${logniLevel}.json; 

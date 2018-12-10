@@ -1,3 +1,8 @@
+logni-belog (0.1.26+develop) unstable; urgency=low
+
+
+ -- Erik Brozek <erik@brozek.name>  Mon, 10 Dec 2018 18:42:27 +0100
+
 logni-belog (0.1.25+develop) unstable; urgency=low
 
   * Fixed: minor bugs [#33601d03f7b9db3f17b9f5d8df71578b26ee6c17](https://github.com/erikni/logni-belog/commit/33601d03f7b9db3f17b9f5d8df71578b26ee6c17)
