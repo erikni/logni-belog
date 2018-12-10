@@ -1,0 +1,18 @@
+#!/bin/sh -e
+
+if [ x"$1" != "xremove" -a x"$1" != "xpurge" ]; then
+    exit 0
+fi
+
+#stopnu sluzby
+for i in `ls -d /service/${DPKG_MAINTSCRIPT_PACKAGE}_* 2>/dev/null`; do
+    echo -n "stopping: ${i}"
+    svc -d ${i}
+    echo ". done"
+    if [ -d ${i}/log ]; then
+        echo -n "stopping: ${i}/log"
+        svc -d ${i}/log || :
+        echo ". done"
+    fi
+done
+

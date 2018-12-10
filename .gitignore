@@ -1,0 +1,23 @@
+build/
+
+# debian
+debian/logni-belog.debhelper.log
+debian/logni-belog/
+.deb-*
+.captainci-*
+
+debian/build
+debian/prebuild
+debian/postbuild
+
+debian/conffiles
+debian/control
+debian/cron.d
+debian/dirs
+debian/install
+debian/links
+debian/rules
+
+# daemontools
+service/http/run
+service/http/log/run

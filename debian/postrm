@@ -1,0 +1,33 @@
+#!/bin/sh -e
+
+GROUP=$(echo ${DPKG_MAINTSCRIPT_PACKAGE} | cut -d"-" -f1)
+NAME=$(echo ${DPKG_MAINTSCRIPT_PACKAGE} | cut -d"-" -f2)
+USR="${GROUP}${NAME}"
+LOG="${GROUP}${NAME}log"
+
+if [ x"$1" != "xremove" -a x"$1" != "xpurge" ]; then
+     exit 0
+fi
+
+#odlinkuju sluzby
+for i in `ls -d /service/${DPKG_MAINTSCRIPT_PACKAGE}_* 2>/dev/null`; do
+        echo -n "removing: ${i}"
+        rm -f ${i} 1>/dev/null 2>/dev/null
+        echo ". done"
+done
+
+#skupinu necham
+#pass
+#if grep -q "^${GROUP}:" /etc/group; then
+#        delgroup ${GROUP}
+#fi
+
+#smazu uzivatele
+if grep -q "^${USR}:" /etc/passwd
+then
+        deluser ${USR}
+fi
+if grep -q "^${LOG}:" /etc/passwd
+then
+        deluser ${LOG}
+fi

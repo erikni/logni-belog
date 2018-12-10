@@ -1,0 +1,70 @@
+version: 1
+locale: en_US.UTF-8
+
+# build
+build_pre:
+        task:
+        - name: build clean
+          command: rm -rfv build && mkdir -v build
+
+        - name: sync www
+          command: rsync -av www/* build/.
+
+        - name: download js lib
+          command: mkdir -p build/js && wget -O build/js/logni.js https://raw.githubusercontent.com/erikni/logni.js/develop/src/logni.js
+
+build:
+        task:
+        - name: change file mode bits for debian/rules
+          command: chmod 755 debian/rules
+
+        - name: package create
+          make: Makefile.debian build
+
+build_post:
+        task:
+        - name: package list
+          command: ls -l /tmp/{{CAPTAINCI_PACKAGE_NAME}}_{{CAPTAINCI_PACKAGE_VERSION}}_all.deb
+
+
+# deploy
+deploy:
+        task:
+        - name: package copy
+          rsync: /tmp/{{CAPTAINCI_PACKAGE_NAME}}_{{CAPTAINCI_PACKAGE_VERSION}}_all.deb
+
+        - name: package install
+          ssh:  dpkg -i /tmp/{{CAPTAINCI_PACKAGE_NAME}}_{{CAPTAINCI_PACKAGE_VERSION}}_all.deb
+
+install:
+        task:
+        - name: package install
+          apt-remote: install {{CAPTAINCI_PACKAGE_NAME}}={{CAPTAINCI_PACKAGE_VERSION}}
+
+# integration
+integration:
+        git:
+                commit: true
+                tag: true
+
+# workflow
+workflows:
+        branch:
+        - develop: build-and-deploy-to-develop
+
+        build-and-deploy-to-develop:
+                env:
+                - URL_START=https://develop-jslib.logni.net
+
+                remote:
+                - hosts: 185.28.101.187
+
+                notify:
+                - erik@brozek.name
+
+                jobs:
+                - locale
+                - build_pre
+                - build
+                - build_post
+                - deploy

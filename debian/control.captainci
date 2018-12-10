@@ -1,0 +1,13 @@
+Source: {{CAPTAINCI_PACKAGE_GROUP}}-{{CAPTAINCI_PACKAGE_USER}}
+Section: admin
+Priority: optional
+Maintainer: Erik Brozek <erik@brozek.name>
+Build-Depends: debhelper, cdbs, rsync
+Standards-Version: 3.8.0
+
+
+Package: {{CAPTAINCI_PACKAGE_GROUP}}-{{CAPTAINCI_PACKAGE_USER}}
+Architecture: all
+Depends: nginx, daemontools-run, daemontools, svtools, mime-support
+Description: logni: log server
+ backend log server for javascript library logni.js

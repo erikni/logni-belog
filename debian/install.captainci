@@ -1,0 +1,5 @@
+etc/http.conf 			opt/{{CAPTAINCI_PACKAGE_GROUP}}/{{CAPTAINCI_PACKAGE_USER}}/etc
+version.properties		opt/{{CAPTAINCI_PACKAGE_GROUP}}/{{CAPTAINCI_PACKAGE_USER}}/www
+
+service/http/run 		opt/{{CAPTAINCI_PACKAGE_GROUP}}/{{CAPTAINCI_PACKAGE_USER}}/service/http
+service/http/log/run 		opt/{{CAPTAINCI_PACKAGE_GROUP}}/{{CAPTAINCI_PACKAGE_USER}}/service/http/log

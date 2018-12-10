@@ -1,0 +1,3 @@
+#!/bin/sh
+
+exec setuidgid {{CAPTAINCI_PACKAGE_GROUP}}{{CAPTAINCI_PACKAGE_USER}}log multilog t n200 s16777215 /opt/{{CAPTAINCI_PACKAGE_GROUP}}/{{CAPTAINCI_PACKAGE_USER}}/log/http

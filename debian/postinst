@@ -1,0 +1,91 @@
+#!/bin/sh -e
+
+GROUP=$(echo ${DPKG_MAINTSCRIPT_PACKAGE} | cut -d"-" -f1)
+NAME=$(echo ${DPKG_MAINTSCRIPT_PACKAGE} | cut -d"-" -f2)
+USR="${GROUP}${NAME}"
+LOG="${GROUP}${NAME}log"
+
+if [ x"$1" != "xconfigure" ]; then
+    exit 0
+fi
+
+# add group if exist
+if ! grep -q "^${GROUP}:" /etc/group; then
+    addgroup --quiet ${GROUP}
+fi
+
+# add use if exist
+if ! grep -q "^${USR}:" /etc/passwd; then
+    adduser --quiet --system --no-create-home --disabled-password --home /nonexistent --ingroup ${GROUP} --gecos "${USR} user" ${USR}
+fi
+if ! grep -q "^${LOG}:" /etc/passwd; then
+    adduser --quiet --system --no-create-home --disabled-password --home /nonexistent --gecos "${LOG} user" ${LOG}
+fi
+
+# chown
+chown -R root:root    	 /opt/${GROUP}/${NAME}/bin
+chown -R ${USR}:${GROUP} /opt/${GROUP}/${NAME}/cache
+chown -R root:root    	 /opt/${GROUP}/${NAME}/etc
+chown -R ${LOG}:root     /opt/${GROUP}/${NAME}/log
+chown -R root:root 	 /opt/${GROUP}/${NAME}/service
+chown -R root:root     	 /opt/${GROUP}/${NAME}/www
+chown -R ${USR}:${GROUP} /opt/${GROUP}/${NAME}/var
+chown -R ${USR}:${GROUP} /opt/${GROUP}/${NAME}/tmp
+
+# chmod
+chmod 755 /opt/${GROUP}/${NAME}/service/http/run
+chmod 755 /opt/${GROUP}/${NAME}/service/http/log/run
+
+# symlink
+for S in `ls -d /opt/${GROUP}/${NAME}/service/* 2>/dev/null`; do
+    B=$(basename ${S})
+    if [ ! -e /service/${DPKG_MAINTSCRIPT_PACKAGE}_${B} ]; then
+        echo -n "linking: ${S} -> /service/${DPKG_MAINTSCRIPT_PACKAGE}_${B}"
+        ln -s ${S} /service/${DPKG_MAINTSCRIPT_PACKAGE}_${B}
+        echo ". done"
+    else
+        echo "linking: /service/${DPKG_MAINTSCRIPT_PACKAGE}_${B} exist. done"
+    fi
+done
+
+# stop
+if [ -f "/etc/init.d/apache2" ]; then
+	echo -n "default apache stop ... "
+	/etc/init.d/apache2 stop | tr -d '\n'
+	update-rc.d -f apache2 remove
+	echo " .done"
+fi
+
+echo -n "default nginx stop ... "
+/etc/init.d/nginx stop | tr -d '\n'
+update-rc.d -f nginx remove
+echo " .done"
+
+echo "remove tmp files ... "
+touch /opt/${GROUP}/${NAME}/tmp/_aaa
+rm -v /opt/${GROUP}/${NAME}/tmp/*
+
+# app nginx restart
+echo -n "app nginx stop ... "
+svc -d /service/${GROUP}-${NAME}_http
+sleep 1
+echo -n "start ... "
+svc -u /service/${GROUP}-${NAME}_http
+echo ". done"
+
+# set version 
+echo -n "app version ... "
+VERSION=`cat /opt/${GROUP}/${NAME}/www/version.properties | tr -d '\n'`
+echo $VERSION | tr -d '\n'
+cp /opt/${GROUP}/${NAME}/www/index.html	/tmp/index.html.orig
+sed -e "s/__VERSION__/$VERSION/g" 	/opt/${GROUP}/${NAME}/www/index.html > /tmp/index.html.version
+cp /tmp/index.html.version 		/opt/${GROUP}/${NAME}/www/index.html
+echo " .done"
+
+# set hostname
+echo -n "set hostname ... "
+hostname | cut -d "." -f1 | tr -d '\n' > /opt/${GROUP}/${NAME}/www/hostname.txt
+cat /opt/${GROUP}/${NAME}/www/hostname.txt | tr -d '\n'
+echo " .done"
+
+echo "finish."
