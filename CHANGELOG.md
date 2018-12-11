@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 This is an automatically generated [changelog](debian/changelog), please do not edit
 
+## [0.1.27+develop] - 2018-12-11
+### Added
+- nginx OPTIONS config [#735ff9f674c1f4827be59c2d2cec1fcd09936bed](https://github.com/erikni/logni-belog/commit/735ff9f674c1f4827be59c2d2cec1fcd09936bed)
+
+
 ## [0.1.25+develop] - 2018-12-10
 ### Added
 - changelog [#4a63145c5d6f95f6dfe33b356cb0c2bb7ca13ec2](https://github.com/erikni/logni-belog/commit/4a63145c5d6f95f6dfe33b356cb0c2bb7ca13ec2)
