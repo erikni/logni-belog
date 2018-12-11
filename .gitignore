@@ -1,5 +1,9 @@
 build/
 
+# node
+package-lock.json
+node_modules
+
 # debian
 debian/logni-belog.debhelper.log
 debian/logni-belog/

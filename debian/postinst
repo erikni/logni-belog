@@ -94,7 +94,7 @@ for logniSeverity in 'Informational' 'Error' 'Critical' 'Warning' 'Debug'; do
 	logniSeverity0=`echo $logniSeverity | cut -c1-1`;
 	echo -n " ${logniSeverity} ... ";
 	for logniLevel in `seq 1 4`; do 
-		echo "{\"status\":200, \"statusCode\":\"OK\", \"logniSeverity\":\"${logniSeverity}\", \"logniLevel\":\"${logniLevel}\"}" > /opt/${GROUP}/${NAME}/www/log/${logniSeverity0}${logniLevel}.json; 
+		echo "{\"status\":200, \"statusCode\":\"OK\", \"logSeverity\":\"${logniSeverity}\", \"logLevel\":\"${logniLevel}\"}" > /opt/${GROUP}/${NAME}/www/log/${logniSeverity0}${logniLevel}.json; 
 	done; 
 done;
 chmod 755 /opt/${GROUP}/${NAME}/www/log/*.json

@@ -5,13 +5,19 @@ locale: en_US.UTF-8
 build_pre:
         task:
         - name: build clean
-          command: rm -rfv build && mkdir -v build
+          command: rm -rf build && mkdir -p build/js
 
         - name: sync www
-          command: rsync -av www/* build/.
+          command: rsync -a www/* build/.
 
         - name: download js lib
-          command: mkdir -p build/js && wget -O build/js/logni.js https://raw.githubusercontent.com/erikni/logni.js/develop/src/logni.js
+          command: wget -O build/js/logni.js https://raw.githubusercontent.com/erikni/logni.js/develop/src/logni.js
+
+        - name: npm 
+          npm: install
+
+        - name: minify src/logni.js
+          command: ./node_modules/babel-minify/bin/minify.js src/logni.js -o build/js/logni.min.js
 
 build:
         task:
