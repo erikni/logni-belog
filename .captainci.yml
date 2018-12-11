@@ -16,8 +16,8 @@ build_pre:
         - name: npm 
           npm: install
 
-        - name: minify src/logni.js
-          command: ./node_modules/babel-minify/bin/minify.js src/logni.js -o build/js/logni.min.js
+        - name: minify logni.js
+          command: ./node_modules/babel-minify/bin/minify.js build/js/logni.js -o build/js/logni.min.js
 
 build:
         task:

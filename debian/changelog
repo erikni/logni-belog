@@ -1,10 +1,5 @@
 logni-belog (0.1.28+develop) unstable; urgency=low
 
-
- -- Erik Brozek <erik@brozek.name>  Tue, 11 Dec 2018 23:49:58 +0100
-
-logni-belog (0.1.27+develop) unstable; urgency=low
-
   * Added: nginx OPTIONS config [#735ff9f674c1f4827be59c2d2cec1fcd09936bed](https://github.com/erikni/logni-belog/commit/735ff9f674c1f4827be59c2d2cec1fcd09936bed)
 
  -- Erik Brozek <erik@brozek.name>  Tue, 11 Dec 2018 07:43:08 +0100
