@@ -1,3 +1,9 @@
+logni-belog (0.1.29+develop) unstable; urgency=low
+
+  * Fixe: minify js [#9e49fb40d15640c3ce2b58a4f298249ce5111ca8](https://github.com/erikni/logni-belog/commit/9e49fb40d15640c3ce2b58a4f298249ce5111ca8)
+
+ -- Erik Brozek <erik@brozek.name>  Tue, 11 Dec 2018 23:54:11 +0100
+
 logni-belog (0.1.28+develop) unstable; urgency=low
 
   * Added: nginx OPTIONS config [#735ff9f674c1f4827be59c2d2cec1fcd09936bed](https://github.com/erikni/logni-belog/commit/735ff9f674c1f4827be59c2d2cec1fcd09936bed)

@@ -6,7 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 This is an automatically generated [changelog](debian/changelog), please do not edit
 
-## [0.1.27+develop] - 2018-12-11
+## [0.1.29+develop] - 2018-12-11
+### Unknown
+- Fixe: minify js [#9e49fb40d15640c3ce2b58a4f298249ce5111ca8](https://github.com/erikni/logni-belog/commit/9e49fb40d15640c3ce2b58a4f298249ce5111ca8)
+
+
+## [0.1.28+develop]
 ### Added
 - nginx OPTIONS config [#735ff9f674c1f4827be59c2d2cec1fcd09936bed](https://github.com/erikni/logni-belog/commit/735ff9f674c1f4827be59c2d2cec1fcd09936bed)
 
