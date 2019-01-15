@@ -1,3 +1,10 @@
+logni-belog (0.1.30+develop) unstable; urgency=low
+
+  * Added: favicon [#0926a4c1d3588c3ed4f973cd01e277b2ad7d3a2e](https://github.com/erikni/logni-belog/commit/0926a4c1d3588c3ed4f973cd01e277b2ad7d3a2e)
+  * Fixed: add cors header [#c3d2fc4133d9a70855548ee79d234c88d8ff4c34](https://github.com/erikni/logni-belog/commit/c3d2fc4133d9a70855548ee79d234c88d8ff4c34)
+
+ -- Erik Brozek <erik@brozek.name>  Tue, 15 Jan 2019 08:13:09 +0100
+
 logni-belog (0.1.29+develop) unstable; urgency=low
 
   * Fixe: minify js [#9e49fb40d15640c3ce2b58a4f298249ce5111ca8](https://github.com/erikni/logni-belog/commit/9e49fb40d15640c3ce2b58a4f298249ce5111ca8)
@@ -35,3 +42,4 @@ logni-belog (0.1.1) unstable; urgency=low
   * Added: debian package
 
  -- Erik Brozek <erik@brozek.name>  Fri, 12 May 2017 16:36:41 +0200
+

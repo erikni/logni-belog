@@ -3,4 +3,5 @@
 include /usr/share/cdbs/1/rules/debhelper.mk
 
 binary-post-install/{{CAPTAINCI_PACKAGE_GROUP}}-{{CAPTAINCI_PACKAGE_USER}}::
+	rsync -av $(CURDIR)/www/*		$(DEB_DESTDIR)/opt/{{CAPTAINCI_PACKAGE_GROUP}}/{{CAPTAINCI_PACKAGE_USER}}/www/
 	rsync -av $(CURDIR)/build/*		$(DEB_DESTDIR)/opt/{{CAPTAINCI_PACKAGE_GROUP}}/{{CAPTAINCI_PACKAGE_USER}}/www/

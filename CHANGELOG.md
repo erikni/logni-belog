@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 This is an automatically generated [changelog](debian/changelog), please do not edit
 
+## [0.1.30+develop] - 2019-01-15
+### Added
+- favicon [#0926a4c1d3588c3ed4f973cd01e277b2ad7d3a2e](https://github.com/erikni/logni-belog/commit/0926a4c1d3588c3ed4f973cd01e277b2ad7d3a2e)
+
+### Fixed
+- add cors header [#c3d2fc4133d9a70855548ee79d234c88d8ff4c34](https://github.com/erikni/logni-belog/commit/c3d2fc4133d9a70855548ee79d234c88d8ff4c34)
+
+
 ## [0.1.29+develop] - 2018-12-11
 ### Unknown
 - Fixe: minify js [#9e49fb40d15640c3ce2b58a4f298249ce5111ca8](https://github.com/erikni/logni-belog/commit/9e49fb40d15640c3ce2b58a4f298249ce5111ca8)
